@@ -1,5 +1,5 @@
 // Here, instead of having a precooked increment and decrement functions,
-// we have an enum called ConterEvent which contains two events the
+// we have an enum called CounterEvent which contains two events the
 // increment & decrement ones.
 import 'package:bloc/bloc.dart';
 
@@ -30,16 +30,16 @@ class CounterBloc extends Bloc<CounterEvent, int> {
 }
 
 // The main function acts like the UI currently.
-// The function is designed for eductional purpose to easy understand.
+// The function is designed for educational purpose to easy understand.
 Future<void> main(List<String> args) async {
   // As Cubit, in order to use bloc, you have to declare it wherever there
   // should be a new event dispatched.
   final bloc = CounterBloc();
 
-  // The bloc 'print' will listen to the event stream, recieve the event,
-  // just how your friend was recieving the boat on the reiver, calculate
+  // The bloc 'print' will listen to the event stream, receive the event,
+  // just how your friend was receiving the boat on the river, calculate
   // the next value and yield it on the State Stream.
-  // this subscribtion to the block state stream and prints the state value
+  // this subscription to the block state stream and prints the state value
   // emitted by it.
   final streamSubscription = bloc.listen(print);
 
@@ -55,7 +55,7 @@ Future<void> main(List<String> args) async {
   bloc.add(CounterEvent.decrement);
   bloc.add(CounterEvent.decrement);
 
-  //! We use this to not cancel the subscribtion immediately down here
+  //! We use this to not cancel the subscription immediately down here
   await Future.delayed(Duration.zero);
 
   await streamSubscription.cancel();

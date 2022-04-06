@@ -3,8 +3,8 @@
 // The first boat will have no.1, the second will have no.2, and so on ...
 
 // Sender:
-// Async Generateor Function that Generate Async Data (Async*)
-// It generates asychoronous data, hence marking it with the async* star
+// Async Generator Function that Generate Async Data (Async*)
+// It generates asynchronous data, hence marking it with the async* star
 Stream<int> createBoatsStream() async* {
   for (int i = 1; i <= 10; i++) {
     print('Sent boat no.$i');
@@ -22,13 +22,13 @@ void main(List<String> arguments) {
   // Initialize the Stream.
   Stream<int> stream = createBoatsStream();
 
-  // Reciver:
+  // Receiver:
   // Then we will listen to the Stream by analyzing whether
-  // a boat is recived or not
+  // a boat is received or not
   // We use listen method to wait incoming stream boats (data),
   // the method listen doesn't know when the boat will arrive,
   // so it needs to listen or practically watch for it.
   stream.listen((receivedBoat) {
-    print('Recived boat no.$receivedBoat');
+    print('Received boat no.$receivedBoat');
   });
 }
